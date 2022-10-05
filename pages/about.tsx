@@ -1,5 +1,8 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { GetStaticProps } from "next";
+import Router, { useRouter } from "next/router";
+import { MainLayout } from "@/components/layout";
 
 const Header = dynamic(() => import("@/components/common/header"), {
   ssr: false,
@@ -39,7 +42,7 @@ export default function AboutPage(props: AboutPageProps) {
   };
 
   return (
-    <>
+    <MainLayout>
       <Header />
       <div>ABOUT PAGE</div>
 
@@ -50,7 +53,7 @@ export default function AboutPage(props: AboutPageProps) {
       </ul>
 
       <button onClick={handleNextClick}>Next Page</button>
-    </>
+    </MainLayout>
   );
 }
 
@@ -59,9 +62,6 @@ export default function AboutPage(props: AboutPageProps) {
 //- The data comes from a headless CMS.
 //- The data can be publicly cached (not user-specific).
 //- The page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance.
-import { GetStaticProps } from "next";
-import Router, { useRouter } from "next/router";
-
 export const getStaticProps: GetStaticProps = async (ctx) => {
   console.log("GetStaticProps");
 
