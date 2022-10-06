@@ -42,7 +42,7 @@ export default function AboutPage(props: AboutPageProps) {
   };
 
   return (
-    <MainLayout>
+    <>
       <Header />
       <div>ABOUT PAGE</div>
 
@@ -53,9 +53,11 @@ export default function AboutPage(props: AboutPageProps) {
       </ul>
 
       <button onClick={handleNextClick}>Next Page</button>
-    </MainLayout>
+    </>
   );
 }
+
+AboutPage.Layout = MainLayout;
 
 // You should use getStaticProps when:
 //- The data required to render the page is available at build time ahead of a user’s request.
