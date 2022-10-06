@@ -1,8 +1,8 @@
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { AdminLayout } from "@/components/layout";
 import { GetStaticProps } from "next";
-import Router, { useRouter } from "next/router";
-import { MainLayout } from "@/components/layout";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Header = dynamic(() => import("@/components/common/header"), {
   ssr: false,
@@ -57,7 +57,7 @@ export default function AboutPage(props: AboutPageProps) {
   );
 }
 
-AboutPage.Layout = MainLayout;
+AboutPage.Layout = AdminLayout;
 
 // You should use getStaticProps when:
 //- The data required to render the page is available at build time ahead of a user’s request.

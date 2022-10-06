@@ -1,10 +1,11 @@
 import Link from "next/link";
 import * as React from "react";
+import Auth from "../common/auth";
 import { LayoutProps } from "../models";
 
 export function AdminLayout({ children }: LayoutProps) {
   return (
-    <div>
+    <Auth>
       <h1>Admin Layout</h1>
       <div>Sidebar</div>
 
@@ -17,6 +18,6 @@ export function AdminLayout({ children }: LayoutProps) {
       </Link>
 
       <div>{children}</div>
-    </div>
+    </Auth>
   );
 }
